@@ -1,0 +1,27 @@
+#!/usr/bin/env just --justfile
+
+# List all tasks
+default:
+	@just --list
+
+# Format the code using gofumpt
+[group: 'check']
+format: tidy
+	@cargo fmt
+
+alias fmt := format
+
+# Lint the code using golangci-lint
+[group: 'check']
+lint:
+	@cargo clippy
+
+# Build the binary
+[group: 'misc']
+build:
+	@cargo build
+
+# Run the project without building
+[group: 'misc']
+run:
+	@cargo run

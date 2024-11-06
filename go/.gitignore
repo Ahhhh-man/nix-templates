@@ -1,0 +1,27 @@
+# Ignore everything and selectively allow files
+/*
+
+# Allow project files
+!.gitignore
+!.gitkeep
+!README.md
+!LICENSE
+!justfile
+
+# Allow Nix files
+!.envrc
+!flake.nix
+!flake.lock
+
+# Allow Go files
+!.golangci.yaml
+!*.go
+!go.sum
+!go.mod
+
+# Allow docker files
+!Dockerfile
+!.dockerignore
+
+# # Recurse through sub-directories applying the same patterns
+!*/

@@ -1,0 +1,34 @@
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - dupl
+    - errcheck
+    - errname
+    - forbidigo
+    - gocritic
+    - godox
+    - gofumpt
+    - goimports
+    - gosimple
+    - govet
+    - err113
+    - ineffassign
+    - ireturn
+    - misspell
+    - musttag
+    - nakedret
+    - revive
+    - thelper
+    - unused
+
+linters-settings:
+  forbidigo:
+    forbid:
+      - 'ioutil\.*'
+  gocritic:
+    enabled-checks:
+      - sloppyReassign
+    settings:
+      captLocal:
+        paramsOnly: false

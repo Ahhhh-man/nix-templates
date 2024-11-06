@@ -1,0 +1,22 @@
+# Ignore everything and selectively allow files
+/*
+
+# Allow project files
+!.gitignore
+!.gitkeep
+!README.md
+!LICENSE
+!taskfile.yaml
+
+# Allow Nix files
+!.envrc
+!flake.nix
+!flake.lock
+
+# Allow python files
+!*.py
+!requirements.txt
+
+# Allow docker files
+!Dockerfile
+!.dockerignore

@@ -1,0 +1,32 @@
+#!/usr/bin/env just --justfile
+
+# List all tasks
+default:
+	@just --list
+
+# Tidy up and resolve all dependencies
+[group: 'check']
+tidy:
+	@go mod tidy
+
+# Format the code using gofumpt
+[group: 'check']
+format: tidy
+	@gofumpt -w -l .
+
+alias fmt := format
+
+# Lint the code using golangci-lint
+[group: 'check']
+lint: tidy
+	@golangci-lint run --timeout 5m0s --out-format colored-line-number
+
+# Build the binary
+[group: 'misc']
+build: tidy
+	@CGO_ENABLED=0 go build -ldflags '-s -w' -o bin/helloworld cmd/main.go
+
+# Run the project without building
+[group: 'misc']
+run:
+	@go run cmd/main.go
