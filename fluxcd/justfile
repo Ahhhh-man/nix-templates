@@ -1,0 +1,53 @@
+#!/usr/bin/env just --justfile
+
+DEFAULT_ENV := "dev"
+
+# List all tasks
+default:
+	@just --list
+
+# Start the k3d cluster
+up: up-only install
+
+# Create the k3d cluster only
+up-only:
+	k3d cluster create --config k3d.yaml
+
+# Delete the k3d cluster
+down:
+	k3d cluster delete --config k3d.yaml
+
+# Mimic the flux bootstrap command
+install ENVIRONMENT=DEFAULT_ENV:
+	@echo "Installing flux in the {{ENVIRONMENT}} environment"
+	flux install --components=source-controller,kustomize-controller,helm-controller
+	flux create source git flux-system \
+		--url=http://${GITEA_URL}/$(git config user.name)/${PROJECT_NAME} \
+		--username=$(git config user.name) \
+		--password=${GITEA_PASSWORD} \
+		--branch=main \
+		--insecure-skip-tls-verify
+	flux create kustomization flux-system \
+		--source=flux-system \
+		--path="./clusters/{{ENVIRONMENT}}" \
+		--prune=true \
+		--interval=1m
+
+# Rebuild the cluster from scratch and install flux
+rebuild ENVIRONMENT=DEFAULT_ENV: down up install
+
+# Push the changes to the git repository
+push:
+	git add -A
+	-git commit -m "refactor: update flux configuration"
+	-git push
+
+# Reconcile the flux system
+reconcile: push
+	flux reconcile kustomization flux-system --with-source
+
+alias rec := reconcile
+
+lint:
+	@echo "Linting the project"
+	$(git rev-parse --show-toplevel)/scripts/validate.sh

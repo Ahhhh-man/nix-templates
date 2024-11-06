@@ -1,0 +1,32 @@
+# Exclude all
+/*
+
+# Allow project files
+!.gitignore
+!.gitkeep
+!.gitattributes
+!.sourceignore
+
+# Allow documentation files
+!README.md
+
+# Allow Nix files
+!.envrc
+!flake.nix
+!flake.lock
+
+# Allow Docker files
+!Dockerfile
+!.dockerignore
+!*compose.yaml
+
+# Include manifest directories
+!apps/
+!clusters/
+!infrastructure/
+!scripts/
+
+# Allow Specific misc. files
+!k3d.yaml
+!justfile
+
