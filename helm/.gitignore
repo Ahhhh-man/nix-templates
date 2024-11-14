@@ -1,0 +1,29 @@
+# Exclude all
+/*
+
+# Allow project files
+!.gitignore
+!.gitkeep
+!.gitattributes
+
+# Allow documentation files
+!README.md
+
+# Allow Nix files
+!.envrc
+!flake.nix
+!flake.lock
+
+# Allow Helm files
+!Chart.yaml
+!values.yaml
+!.helmignore
+!helmfile*.yaml
+
+# Include manifest directories
+!templates/
+!charts/
+!crds/
+
+# Allow Specific misc. files
+!justfile
