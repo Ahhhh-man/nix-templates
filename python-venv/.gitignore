@@ -4,9 +4,9 @@
 # Allow project files
 !.gitignore
 !.gitkeep
-!README.md
+!README.rst
 !LICENSE
-!taskfile.yaml
+!justfile
 
 # Allow Nix files
 !.envrc

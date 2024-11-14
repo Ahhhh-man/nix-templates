@@ -1,0 +1,28 @@
+#!/usr/bin/env just --justfile
+
+# List all tasks
+default:
+	@just --list
+
+# Create a virtual environment
+[group: 'setup']
+venv-rebuild:
+    if [ -d .venv ]; then rm -rf .venv; fi
+    direnv reload
+
+# Format the code using gofumpt
+[group: 'check']
+format:
+    @black $(find . -name '*.py' -not -path './.venv/*')
+
+alias fmt := format
+
+# Lint the code using golangci-lint
+[group: 'check']
+lint:
+    @flake8 $(find . -name '*.py' -not -path './.venv/*')
+
+# Run the project without building
+[group: 'misc']
+run:
+	@python3 sample.py
