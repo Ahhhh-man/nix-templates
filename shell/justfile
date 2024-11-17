@@ -1,0 +1,17 @@
+#!/usr/bin/env just --justfile
+
+# List all tasks
+default:
+	@just --list
+
+# Format the code using gofumpt
+[group: 'check']
+format:
+	@find . -type f -name '*.sh' -exec shfmt -w {} +
+
+alias fmt := format
+
+# Lint the code using golangci-lint
+[group: 'check']
+lint:
+    @find . -type f -name '*.sh' -exec shellcheck {} +
