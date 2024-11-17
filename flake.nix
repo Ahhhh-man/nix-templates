@@ -23,6 +23,11 @@
         path = ./fluxcd;
         description = "FluxCD template";
       };
+
+      helm = {
+        path = ./helm;
+        description = "Helm template";
+      };
     };
   };
 }
