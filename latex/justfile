@@ -1,0 +1,10 @@
+#!/usr/bin/env just --justfile
+
+# List all tasks
+default:
+	@just --list
+
+# Build the PDF
+[group: 'misc']
+build:
+    @pdflatex -halt-on-error -output-directory=target main.tex
