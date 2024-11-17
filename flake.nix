@@ -4,14 +4,24 @@
   outputs = { self }: {
 
     templates = {
+      fluxcd = {
+        path = ./fluxcd;
+        description = "FluxCD template";
+      };
+
       go = {
         path = ./go;
         description = "Golang template";
       };
 
-      rust = {
-        path = ./rust;
-        description = "Rust template";
+      helm = {
+        path = ./helm;
+        description = "Helm template";
+      };
+
+      latex = {
+        path = ./latex;
+        description = "LaTeX template";
       };
 
       python-venv = {
@@ -19,14 +29,9 @@
         description = "Python venv template";
       };
 
-      fluxcd = {
-        path = ./fluxcd;
-        description = "FluxCD template";
-      };
-
-      helm = {
-        path = ./helm;
-        description = "Helm template";
+      rust = {
+        path = ./rust;
+        description = "Rust template";
       };
     };
   };
