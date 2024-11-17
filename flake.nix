@@ -33,6 +33,11 @@
         path = ./rust;
         description = "Rust template";
       };
+
+      shell = {
+        path = ./shell;
+        description = "Shell template";
+      };
     };
   };
 }
