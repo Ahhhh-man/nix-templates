@@ -1,26 +1,34 @@
+output:
+  sort-results: true
+  print-issued-lines: false
+
 linters:
   disable-all: true
   enable:
+    # golangci-lint defaults:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    # Additional linters:
+    - nolintlint
     - bodyclose
     - dupl
-    - errcheck
     - errname
     - forbidigo
     - gocritic
     - godox
     - gofumpt
     - goimports
-    - gosimple
-    - govet
     - err113
-    - ineffassign
     - ireturn
     - misspell
     - musttag
     - nakedret
     - revive
     - thelper
-    - unused
 
 linters-settings:
   forbidigo:
