@@ -12,11 +12,11 @@ Create a new project using the template of your choice.
 $ nix flake new --template github:ahhhh-man/nix-templates#<flake> <project-name>
 ```
 
-# How to use the templates
+## How to use the templates
 
 Once your preferred template has been initialized, you can use the provided shell in two ways: If you have `nix-direnv` installed, you can initialize the environment by running `direnv allow`. Otherwise, you can run `nix develop` to enter the shell.
 
-# Available templates
+## Available templates
 
 - [fluxcd](./fluxcd) - FluxCD GitOps template.
 - [go](./go) - Golang project.
