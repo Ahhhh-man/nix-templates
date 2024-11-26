@@ -22,9 +22,9 @@ install ENVIRONMENT=DEFAULT_ENV:
 	@echo "Installing flux in the {{ENVIRONMENT}} environment"
 	flux install --components=source-controller,kustomize-controller,helm-controller
 	flux create source git flux-system \
-		--url=http://${GITEA_URL}/$(git config user.name)/${PROJECT_NAME} \
-		--username=$(git config user.name) \
-		--password=${GITEA_PASSWORD} \
+		--url=http://${GIT_SERVER}/${GIT_USERNAME}/${PROJECT_NAME} \
+		--username=${GIT_USERNAME} \
+		--password=${GIT_TOKEN} \
 		--branch=main \
 		--insecure-skip-tls-verify
 	flux create kustomization flux-system \
