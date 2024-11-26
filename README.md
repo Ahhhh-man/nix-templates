@@ -1,5 +1,7 @@
 # Nix templates
 
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+
 Templates are there to help you start your Nix project.
 
 ```sh
