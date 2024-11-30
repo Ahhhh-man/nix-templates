@@ -24,6 +24,6 @@ Once your preferred template has been initialized, you can use the provided shel
 - [go](./go) - Golang project.
 - [helm](./helm) - Kubernetes Helm chart template.
 - [LaTeX](./latex) - LaTeX project.
-- [python-venv](./python) - Python project using virtual environment.
+- [python-venv](./python-venv) - Python project using virtual environment.
 - [rust](./rust) - Rust project.
 - [shell](./shell) - Shell script utilities.
