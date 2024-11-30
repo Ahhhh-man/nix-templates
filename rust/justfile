@@ -6,7 +6,7 @@ default:
 
 # Format the code using gofumpt
 [group: 'check']
-format: tidy
+format:
 	@cargo fmt
 
 alias fmt := format
