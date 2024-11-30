@@ -43,7 +43,7 @@
           nativeBuildInputs = [ rustTools ] ++ sharedInputs;
 
           RUST_SRC_PATH = "${rustTools}/lib/rustlib/src/rust/library";
-          RUSTFLAGS = "-Z macro-backtrace";
+          RUSTFLAGS = "";
         };
       });
 }
